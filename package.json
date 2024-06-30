@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://sang-gyeong.github.io/sanggyeong-memo",
+  "homepage": "https://sang-gyeong.github.io/memo-app",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
