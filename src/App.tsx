@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from 'styled-components';
+import './App.css';
+import './normalize.css';
+import Header from './components/header';
+import Input from './components/input';
+import MemoContainer from './components/memoContainer';
+import { RecoilRoot } from 'recoil';
+import Modal from './components/modal';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <RecoilRoot>
+      <Container>
+        <Header />
+        <Main>
+          <Input />
+          <MemoContainer />
+        </Main>
+      </Container>
+      <Modal />
+    </RecoilRoot>
+  );
 }
 
-export default App
+export default App;
+
+const Container = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  flex-direction: column;
+  background-color: #f2f2f2;
+`;
+
+const Main = styled.main`
+  display: flex;
+  width: 100%;
+  // border: 3px solid green;
+  flex-direction: column;
+  padding: 24px;
+  gap: 18px;
+  box-sizing: border-box;
+`;
